@@ -21,7 +21,7 @@ define(
         */
         return Component.extend({
             defaults: {
-                template: 'Webjump_StepCheckoutCheckLogin/check-login'
+                template: 'Maria_StepCheckoutCheckLogin/check-login'
             },
 
             //adicione aqui sua lógica para exibir a etapa,
