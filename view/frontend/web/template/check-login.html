@@ -1,0 +1,39 @@
+<!--Use 'stepCode' como atributo id-->
+<li data-bind="fadeVisible: isVisible, attr: { id: stepCode }">
+    <div class="step-title" data-bind="i18n: stepTitle" data-role="title"></div>
+    <div id="checkout-step-title"
+        class="step-content"
+        data-role="content">
+        <span data-bind="if: isLogedIn">
+            <div class="name">
+                <strong><!-- ko i18n: 'Name:'--><!-- /ko --></strong><div class="firstname" data-bind="text: window.checkoutConfig.customerData.firstname"></div>
+            </div>
+            <div class="lastname">
+                <strong><!-- ko i18n: 'Lastname:'--><!-- /ko --></strong><div class="lastname" data-bind="text: window.checkoutConfig.customerData.lastname"></div>
+            </div>
+            <div class="email">
+                <strong>E-mail:</strong><div class="data-email" data-bind="text: window.checkoutConfig.customerData.email"></div>
+            </div>
+            <p><!-- ko i18n: 'The customer is Logged-in'--><!-- /ko --></p>
+            <form data-bind="submit: navigateToNextStep" novalidate="novalidate">
+                <div class="actions-toolbar">
+                    <div class="primary">
+                        <button data-role="opc-continue" type="submit" class="button action continue primary">
+                            <span><!-- ko i18n: 'Next'--><!-- /ko --></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </span>
+        <span data-bind="if: !isLogedIn">
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <p><!-- ko i18n: 'The customer is not Logged-in'--><!-- /ko --></p>
+                    <button data-role="opc-continue" type="submit" class="button action login primary">
+                        <span><a href="https://magento2.local/customer/account/login/"><!-- ko i18n: 'Login'--><!-- /ko --></a></span>
+                    </button>
+                </div>
+            </div>
+        </span>
+    </div>
+</li>
